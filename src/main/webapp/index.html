@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="formularioApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registro de usuarios</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" >
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+    </head>
+    <body ng-controller="bodyController">
+        <div class="container">
+            <center><h1>Formulario para el registro de usuarios</h1></center>
+            <form class="form-horizontal" id="formulario">
+                <div id="divNombre" class="form-group">
+                    <label for="nombre" class="control-label col-md-2">Nombre</label> 
+                    <div class="col-md-10">
+                        <input type="text" id="nombre" class="form-control" placeholder="Nombre" ng-model="newPost.nombre" onblur="validar(this.id);"/>
+                        <span class="help-block" ></span>
+                    </div>
+                </div>  
+                <div id="divEmail" class="form-group">
+                    <label for="email" class="control-label col-md-2">Email</label> 
+                    <div class="col-md-10">
+                        <input type="text" id="email" class="form-control" placeholder="example@example.com" ng-model="newPost.email" onblur="validar(this.id);"/>
+                        <span class="help-block" ></span>
+                    </div>
+                </div>
+                <div id="divTel" class="form-group">
+                    <label for="telefono" class="control-label col-md-2">Teléfono</label>
+                    <div class="col-md-10">
+                        <input type="text" id="telefono" class="form-control" placeholder="Teléfono" ng-model="newPost.telefono" onblur="validar(this.id);"/>
+                        <span class="help-block" ></span>
+                    </div>
+                </div>
+                <div id="divDir" class="form-group">
+                    <label for="direccion" class="control-label col-md-2">Dirección</label>
+                    <div class="col-md-10">
+                        <input type="text" id="direccion" class="form-control" placeholder="Dirección" ng-model="newPost.direccion" onblur="validar(this.id);"/>
+                        <span class="help-block" ></span>
+                    </div>
+                </div>
+                <div id="divProp" class="form-group">
+                    <label for="propietario" class="control-label col-md-2">Propietario</label>
+                    <div class="col-md-10">
+                        <input type="text" id="propietario" class="form-control" placeholder="Propietario" ng-model="newPost.propietario" onblur="validar(this.id);"/>
+                        <span class="help-block" ></span>
+                    </div>
+                </div>
+                <!--<div id="divMd5" class="form-group">
+                    <label for="md5" class="control-label col-md-2">Md5</label>
+                    <div class="col-md-10">
+                        <input type="text" id="md5" class="form-control" placeholder="md5" ng-model="newPost.md5" onblur="validar(this.id);"/>
+                        <span class="help-block" ></span>
+                    </div>
+                </div>
+                -->
+                <div class="form-group">
+                    <div class="col-md-2 col-md-offset-2">
+                        <input type="submit" id="btnRegistar" value="Registrar" class="btn btn-primary" ng-click="addPost();"/>
+                    </div>  
+                    <div class="col-md-4 col-md-offset-2">
+                        <input type="submit" id="btnRegistar" value="Consultar" class="btn btn-primary" ng-click="getPost();"/>   
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed">
+                    <tr class="success">
+                        <th>#ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Propietario</th>
+                    </tr>
+                    <tr ng-repeat="datos in posts">
+                        <td>{{datos.id}}</td>
+                        <td>{{datos.nombre}}</td>
+                        <td>{{datos.email}}</td>
+                        <td>{{datos.telefono}}</td>
+                        <td>{{datos.direccion}}</td>
+                        <td>{{datos.propietario}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/apoyo.js"></script>
+    </body>
+</html>
